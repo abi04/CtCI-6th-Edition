@@ -34,12 +34,31 @@ public class Question {
 		}
 		return -1;
 	}
-	
+
+	public static void myReplaceSpaces(char[] str,int truelength){
+		int arrayIndex = str.length - 1;
+		for (int i = truelength-1; i >= 0 ; i--) {
+			if(str[i] == ' '){
+				str[arrayIndex--] = '0';
+				str[arrayIndex--] = '2';
+				str[arrayIndex--] = '%';
+			}
+			else {
+				str[arrayIndex--] = str[i];
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		String str = "Mr John Smith    ";
 		char[] arr = str.toCharArray();
 		int trueLength = findLastCharacter(arr) + 1;
-		replaceSpaces(arr, trueLength);	
+		replaceSpaces(arr, trueLength);
 		System.out.println("\"" + AssortedMethods.charArrayToString(arr) + "\"");
+		char[] arr2 = str.toCharArray();
+		myReplaceSpaces(arr2,trueLength);
+		System.out.println("\"" + AssortedMethods.charArrayToString(arr2) + "\"");
+		boolean check = AssortedMethods.charArrayToString(arr).equals(AssortedMethods.charArrayToString(arr2));
+		AssortedMethods.checkSolution(check);
 	}
 }

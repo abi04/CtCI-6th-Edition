@@ -4,6 +4,11 @@ import java.util.*;
 import java.awt.*;
 
 public class AssortedMethods {
+
+	public static void checkSolution(Boolean check){
+		System.out.println("Does my implementation matches with the solution:\t" + check);
+	}
+
 	public static int randomInt(int n) {
 		return (int) (Math.random() * n);
 	}
